@@ -12,3 +12,7 @@ app.use(cors());
 app.use(fileUpload({
     useTempFiles: true,
 }));
+
+// Connect to MongoDB
+const URI = process.env.MONGODB_URL
+//31:20
