@@ -13,6 +13,14 @@ app.use(fileUpload({
     useTempFiles: true,
 }));
 
-// Connect to MongoDB
-const URI = process.env.MONGODB_URL
-//31:20
+// MongoDb Connection
+require('./helper/db')()
+
+app.get("/", (req, res) =>{
+    res.json({msg: "Ishladi"})
+})
+
+const PORT = process.env.PORT || 5000
+app.listen(PORT, () =>{
+    console.log(`Server is running http://localhost:${PORT}`);
+})
