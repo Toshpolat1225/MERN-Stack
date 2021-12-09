@@ -19,7 +19,7 @@ require('./helper/db')()
 app.get("/", (req, res) =>{
     res.json({msg: "Ishladi"})
 })
-
+//35:13
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () =>{
     console.log(`Server is running http://localhost:${PORT}`);
