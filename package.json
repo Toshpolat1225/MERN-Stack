@@ -1,9 +1,10 @@
 {
-  "name": "MERN-Stack",
+  "name": "mern_stack",
   "version": "1.0.0",
   "description": "Build a Ecommerce Website - Full",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "dev": "nodemon server.js"
   },
   "repository": {

@@ -11,11 +11,9 @@ module.exports = () => {
         })
         const db = mongoose.connection
         db.on('error', console.error.bind(console, 'connection error:'));
-        console.log("kkkk");
         db.once('open', function () {
-            console.log('MongoDB connected with global');
+            console.log(`MongoDB connected with ${URI}`);
         });
-
     } catch (err) {
         throw err;
     }
