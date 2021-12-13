@@ -38,6 +38,7 @@ const userCtrl = {
             jwt.verify(rf_token, process.env.REFRESH_TOKEN_SECRET, (err, user)=>{
                 if(err) return res.status(400).json({msg: "Iltimos Akkountizga o'ting"})
                 const accesstoken = createAccesstoken({id: user.id})
+                res.json({user, accesstoken})
             })
             res.json({rf_token})
         } catch (error) {

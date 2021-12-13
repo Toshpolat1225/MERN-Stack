@@ -18,10 +18,6 @@ app.use("/user", require("./routes/userRouter"))
 // MongoDb Connection
 require('./helper/db')()
 
-// app.get("/", (req, res) =>{
-//     res.json({msg: "Ishladi"})
-// })
-
 //56:40
 // PORT Connection
  const PORT = process.env.PORT || 5000
