@@ -31,6 +31,16 @@ const userCtrl = {
             return res.status(500).json({msg: error.message});
         }
     },
+    login: async (req, res) => {
+        try {
+            const {email, password} = req.body 
+            const user = await Users.findOne()
+            
+            res.json({login})
+        } catch (error) {
+            return res.status(500).json({msg: error.message});
+        }
+    },
     refreshToken:(req, res) => {
         try {
             const rf_token = req.cookies.refreshtoken
@@ -40,7 +50,7 @@ const userCtrl = {
                 const accesstoken = createAccesstoken({id: user.id})
 
                 //res.json({user, accesstoken})
-                
+
             })
             res.json({rf_token})
         } catch (error) {
