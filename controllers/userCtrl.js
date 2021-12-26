@@ -26,7 +26,7 @@ const userCtrl = {
                 httpOnly: true,
                 path: "/user/refresh_token"
             })
-            res.json({msg: "Register o'xshadi"})
+            res.json({accesstoken , msg: "Registerdan o'tindingiz"})
         } catch (error) {
             return res.status(500).json({msg: error.message});
         }
@@ -34,9 +34,26 @@ const userCtrl = {
     login: async (req, res) => {
         try {
             const {email, password} = req.body 
-            const user = await Users.findOne()
-            
-            res.json({login})
+            const user = await Users.findOne({email})
+            if(!user) return res.status(400).json({msg: "Bunday foydalanuvchi yo'q"})
+            const isMatch = await bcrypt.compare(password, user.password)
+            if(!isMatch) return res.status(400).json({msg: "Parol nato'g'ri"})
+            // if login success, create access token and refresh token
+            const accesstoken = createAccesstoken({id: user.id})
+            const refreshtoken = createRefreshtoken({id: user.id})
+            res.cookie("refreshtoken", refreshtoken, {
+                httpOnly: true,
+                path: "/user/refresh_token"
+            })
+            res.json({accesstoken, msg: "Logindan o'tindingiz"})
+        } catch (error) {
+            return res.status(500).json({msg: error.message});
+        }
+    },
+    logout: async (req, res) => {
+        try {
+            res.clearCookie("refreshtoken", {path: "/user/refresh_token"})
+            return res.json({msg: "Chiqishdan o'tindingiz"})
         } catch (error) {
             return res.status(500).json({msg: error.message});
         }
