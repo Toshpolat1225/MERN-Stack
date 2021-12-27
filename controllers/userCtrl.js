@@ -73,7 +73,14 @@ const userCtrl = {
         } catch (error) {
             return res.status(500).json({msg: error.message});
         }
-    }
+    },
+    getUser:(req, res) => {
+        try {
+            res.json(req.user)
+        } catch (error) {
+            return res.status(500).json({msg: error.message});
+        }
+    },
 }
 const createAccesstoken = (user) => {
     return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn: "1d"})
