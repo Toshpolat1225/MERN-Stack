@@ -12,8 +12,8 @@ cloudinary.config({
     cloud_url: process.env.CLOUDINARY_URL,
 })
 
-//upload image cloudinary
-router.post("/upload", (req, res) => {
+//upload image only admin can use cloudinary
+router.post("/upload", auth, authAdmin, (req, res) => {
     try {
         console.log(req.files)
         if(!req.files || Object.keys(req.files).length === 0)
@@ -35,6 +35,23 @@ router.post("/upload", (req, res) => {
     } catch (error) {
         return res.status(500).json({msg: error.message})
     }
+})
+// Delete image only admin can use
+router.post('/destroy',auth , authAdmin, (req, res) =>{
+    try {
+        const {public_id} = req.body;
+        if(!public_id) return res.status(400).json({msg: 'Rasm topilmadi'})
+
+        cloudinary.v2.uploader.destroy(public_id, async(err, result) =>{
+            if(err) throw err;
+
+            res.json({msg: "Rasm o'chirildi"})
+        })
+
+    } catch (error) {
+        return res.status(500).json({msg: error.message})
+    }
+    
 })
 const removeTmp = (path) =>{
     fs.unlink(path, err=>{
