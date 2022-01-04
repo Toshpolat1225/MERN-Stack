@@ -22,6 +22,14 @@ const categoryCtrl = {
         } catch (error) {
             return res.status(500).json({msg: error.message})
         }
+    },
+    deleteCategory: async (req, res) => {
+        try {
+            await Category.findOneAndDelete(req.params.id)
+            res.json({msg: "Category o'chirildi"})
+        } catch (error) {
+            return res.status(500).json({msg: error.message})
+        }
     }
 }
 module.exports = categoryCtrl
