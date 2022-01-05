@@ -3,7 +3,6 @@ const cloudinary = require("cloudinary");
 const auth = require("../middleware/auth")
 const authAdmin = require("../middleware/authAdmin")
 const fs = require("fs")
-
 // we will upload image cloudinary
 cloudinary.config({
     cloud_name: process.env.CLOUD_NAME,
@@ -11,7 +10,6 @@ cloudinary.config({
     api_secret: process.env.CLOUD_API_SECRET,
     cloud_url: process.env.CLOUDINARY_URL,
 })
-
 //upload image only admin can use cloudinary
 router.post("/upload", auth, authAdmin, (req, res) => {
     try {
