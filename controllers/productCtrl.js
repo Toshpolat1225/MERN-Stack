@@ -3,7 +3,9 @@ const Products = require('../models/productModel')
 const productCtrl = {
     getProducts: async(req, res) =>{
         try {
-            res.json("keldi")
+            const products = await Products.find()
+            res.json(products)
+
             // const features = new APIfeatures(Products.find(), req.query)
             // .filtering().sorting().paginating()
 
