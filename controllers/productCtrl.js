@@ -3,6 +3,7 @@ const Products = require('../models/productModel')
 const productCtrl = {
     getProducts: async(req, res) =>{
         try {
+            res.json("keldi")
             // const features = new APIfeatures(Products.find(), req.query)
             // .filtering().sorting().paginating()
 
@@ -20,19 +21,19 @@ const productCtrl = {
     },
     createProduct: async(req, res) =>{
         try {
-            // const {product_id, title, price, description, content, images, category} = req.body;
-            // if(!images) return res.status(400).json({msg: "No image upload"})
+            const {product_id, title, price, description, content, images, category} = req.body;
+            if(!images) return res.status(400).json({msg: "Rasm jo'natilmadi"})
 
-            // const product = await Products.findOne({product_id})
-            // if(product)
-            //     return res.status(400).json({msg: "This product already exists."})
+            const product = await Products.findOne({product_id})
+            if(product)
+                return res.status(400).json({msg: "Bu mahsulot o'zi bor"})
 
-            // const newProduct = new Products({
-            //     product_id, title: title.toLowerCase(), price, description, content, images, category
-            // })
+            const newProduct = new Products({
+                 product_id, title: title.toLowerCase(), price, description, content, images, category
+            })
 
-            // await newProduct.save()
-            // res.json({msg: "Created a product"})
+            await newProduct.save()
+            res.json({msg: "Product yaratildi"})
 
         } catch (err) {
             return res.status(500).json({msg: err.message})
