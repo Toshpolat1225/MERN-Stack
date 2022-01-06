@@ -1,4 +1,5 @@
-import React, {createContext, useState, useEffect} from 'react'
+import React, {createContext, useState} from 'react'
+// , useEffect
 export const GlobalState = createContext()
 
 export const DataProvider = ({children}) =>{
