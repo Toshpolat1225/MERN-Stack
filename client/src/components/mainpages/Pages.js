@@ -4,6 +4,7 @@ import Products from './products/Products';
 import Login from './auth/Login';
 import Register from './auth/Register';
 import Cart from './cart/Cart';
+import NotFound from './utils/NotFound/NotFound';
 
 
 const Pages = () => {
@@ -13,6 +14,8 @@ const Pages = () => {
         <Route path="/login" exact components={Login}/>
         <Route path="/register" exact components={Register}/>
         <Route path="/cart" exact components={Cart}/>
+
+        <Route path="*" exact components={NotFound}/>
         </Routes>
     )
 }
