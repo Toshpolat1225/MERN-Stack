@@ -33,4 +33,4 @@ button{
   cursor: pointer;
 }
 /* ------------------------- Header ------------------------ */
-@import url("./components/headers/header.css")
+@import url("./components/headers/header.css");
