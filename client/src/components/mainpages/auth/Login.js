@@ -1,6 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const Login = () => {
+    const [user, setUser] = useState({
+        email: '', password: ''
+    })
     return (
         <div>
             Login Component
