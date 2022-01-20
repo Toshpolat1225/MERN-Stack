@@ -6,6 +6,7 @@ import Cart from "./icon/cart.svg"
 import {Link} from "react-router-dom"
 const Header = () => {
     const state = useContext(GlobalState)
+    console.log(state)
     const [isLogged] = state.userAPI.isLogged
     const [isAdmin] = state.userAPI.isAdmin
 

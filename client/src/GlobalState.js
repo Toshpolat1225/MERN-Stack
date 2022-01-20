@@ -9,15 +9,12 @@ export const DataProvider = ({children}) =>{
 
     const refreshToken = async() =>{
         const res = await axios.get("/user/refresh_token")
-        setToken(res.data.accesstoken)
+        setToken(res.data.rf_token)
     }
     useEffect(() =>{
         const firstLogin = localStorage.getItem('firstLogin')
-        if(firstLogin){
-            refreshToken()
-        }
+        if(firstLogin) refreshToken()
     },[])
-
     const state = {
         token: [token, setToken],
         productsAPI: ProductsAPI(),
