@@ -15,10 +15,11 @@ function UserAPI(token) {
                         headers: {Authorization: token}
                     })
 
-                    // setIsLogged(true)
-                    // res.data.role === 1 ? setIsAdmin(true) : setIsAdmin(false)
+                    setIsLogged(true)
+                    res.data.role === 1 ? setIsAdmin(true) : setIsAdmin(false)
 
                     // setCart(res.data.cart)
+                    console.log(res)
 
                 } catch (err) {
                     alert(err.response.data.msg)
