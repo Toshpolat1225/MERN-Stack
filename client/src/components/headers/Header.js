@@ -1,4 +1,4 @@
-import React, {useState,useContext} from 'react'
+import React, {useContext} from 'react'
 import {GlobalState} from '../../GlobalState'
 import Menu from "./icon/menu.svg"
 import Close from "./icon/close.svg"
@@ -42,7 +42,7 @@ const Header = () => {
             </div>
             <div className="logo">
                 <h1>
-                    <Link to="/">{isAdmin ?  "Admin Marvel" : "Marvel"}</Link>
+                    <Link to="/">{isAdmin ?  "Admin Marvel" : "Marvel"} </Link>
                 </h1>
             </div>
             <ul>
