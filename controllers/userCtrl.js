@@ -5,7 +5,9 @@ const jwt = require('jsonwebtoken')
 const userCtrl = {
     register: async (req, res) => {
         try {
+
             const {name, email, password} = req.body
+            console.log({name, email, password})
 
             const user = await Users.findOne({email})
             if(user) return res.status(400).json({msg: "Bunday email bor"})
@@ -19,6 +21,7 @@ const userCtrl = {
             })
             // Save MongoDB
             await newUser.save()
+            console.log(newUser)
             // Then create jsonwebtoken to authentication
             const accesstoken = createAccesstoken({id: newUser.id})
             const refreshtoken = createRefreshtoken({id: newUser.id})
@@ -26,9 +29,10 @@ const userCtrl = {
                 httpOnly: true,
                 path: "/user/refresh_token"
             })
+            console.log(accesstoken)
             res.json({accesstoken , msg: "Registerdan o'tindingiz"})
         } catch (error) {
-            return res.status(500).json({msg: error.message});
+            return res.status(500).json({msg: error.message}+"1451");
         }
     },
     login: async (req, res) => {
@@ -66,7 +70,7 @@ const userCtrl = {
                 if(err) return res.status(400).json({msg: "Iltimos Akkountizga o'ting"})
                 const accesstoken = createAccesstoken({id: user.id})
 
-                //res.json({user, accesstoken})
+                res.json({user, accesstoken})
 
             })
             res.json({rf_token})
