@@ -57,3 +57,8 @@
     background: teal;
     margin-left: 5px;
 }
+.product_card input{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+}
