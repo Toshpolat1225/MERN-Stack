@@ -18,8 +18,9 @@ function BtnRender({product}) {
                     Edit
                     </Link>
                 </>
-                :<>
-                    <Link id="btn_buy" to="#!" onClick={() => addCart(product)}
+                :
+                <>
+                    <Link id="btn_buy" to="#!" onClick={() => addCart(product)}>
                     Buy</Link>
 
                     <Link id="btn_view" to={`/detail/${product._id}`}>
