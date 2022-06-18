@@ -23,7 +23,7 @@
     color: #323232;
 }
 .product_card span{
-    color: crimson
+    color: crimson;
 }
 .product_box p{
     width: 100%;
@@ -59,6 +59,6 @@
 }
 .product_card input{
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
 }
