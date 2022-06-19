@@ -49,7 +49,7 @@ function OrderHistory() {
                             <tr key={items._id}>
                                 <td>{items.paymentID}</td>
                                 <td>{new Date(items.createdAt).toLocaleDateString()}</td>
-                                <td><Link to={`/history/${items._id}`}>Ko'rish</Link></td>
+                                <td><Link to={`/detail/${items.cart[0]._id}`}>Ko'rish</Link></td>
                             </tr>
                         ))
                     }

@@ -57,8 +57,8 @@ function Header() {
             </div>
 
             <ul style={styleMenu}>
-                <li><Link to="/">{isAdmin ? 'Mahsulotlar' : 'Dorixona'}</Link></li>
-
+                <li><Link to={{ pathname: "https://pharmaclik77.herokuapp.com" }} target="_blank" >{isAdmin ? '' : 'Dorixona'}</Link></li>
+                <li><Link to="/">{isAdmin ? 'Mahsulotlar' : ''}</Link></li>
                 {isAdmin && adminRouter()}
 
                 {
@@ -73,12 +73,14 @@ function Header() {
 
             {
                 isAdmin ? '' 
-                :<div className="cart-icon">
-                    <span>{cart.length}</span>
-                    <Link to="/cart">
-                        <img src={Cart} alt="" width="30" />
-                    </Link>
-                </div>
+                    :isLogged ? 
+                        < div className="cart-icon">
+                            <span>{cart.length}</span>
+                            <Link to="/cart">
+                              <img src={Cart} alt="" width="30" />
+                            </Link>
+                        </div>
+                        : '' 
             }
             
         </header>
