@@ -21,7 +21,7 @@ export default class PaypalButton extends React.Component {
         let total = this.props.total;
  
         const client = {
-            sandbox:    'YOUR-sandbox-APP-ID',
+            sandbox:    'AVFwAiblSDi_XNLarCk3Oj_KmvdjQdYcAuozAKa2REYYKHCSxwB-1SekYg-Ih3EQ0olIJmlAdvLDxX2x',
             production: 'YOUR-PRODUCTION-APP-ID',
         }
  
